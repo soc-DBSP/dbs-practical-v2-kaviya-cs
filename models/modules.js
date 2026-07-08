@@ -4,9 +4,9 @@ const prisma = new PrismaClient();
 module.exports.create = function create(code, name, credit) {
 return prisma.module.create({
     data:{
-        crseCode:code,
-        crseName:name,
-        crseFee:credit
+        modCode:code,
+        modName:name,
+        creditUnit:parseInt(credit, 10)
     }
 }).then(function (module) {
     return module;
@@ -21,8 +21,8 @@ return prisma.module.create({
 
 module.exports.updateByCode=function updateByCode(code,credit){
     return prisma.module.update({
-        where:{crseCode:code},
-        data:{crseFee:credit}
+        where:{modCode:code},
+        data:{creditUnit:parseInt(credit, 10)}
     }).then(function(module){
         return module;
     }).catch(function(error){
@@ -35,7 +35,7 @@ module.exports.updateByCode=function updateByCode(code,credit){
 
 module.exports.deleteByCode = function deleteByCode(code) {
 return prisma.module.delete({
-    where:{ crseCode:code}
+    where:{ modCode:code}
 }).then(function (module) {
     return module;
 }).catch(function (error) {
@@ -51,7 +51,7 @@ module.exports.retrieveAll=function retrieveAll(){
 
 module.exports.retrieveByCode = function retrieveByCode(code) {
     return prisma.module.findUnique({
-        where: { crseCode: code }
+        where: { modCode: code }
     }).then(function (module) {
         if (!module) {
             throw new Error(`The module ${code} was not found`);
@@ -61,3 +61,6 @@ module.exports.retrieveByCode = function retrieveByCode(code) {
         throw error;
     });
 };
+
+// impt 
+// control space to know what is available in the prisma object

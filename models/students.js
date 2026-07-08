@@ -1,3 +1,4 @@
+
 const { query } = require('../database');
 const { SQL_ERROR_CODE, UNIQUE_VIOLATION_ERROR, RAISE_EXCEPTION } = require('../errors');
 
