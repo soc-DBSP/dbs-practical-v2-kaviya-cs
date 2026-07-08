@@ -165,6 +165,21 @@ const getDepartmentCourseStudentDob = () => {
         }
     });
 };
+
+// async function getDepartmentsWithoutCourses() {
+//     // departments that do no offer any course
+//     return prisma.staff.findMany({
+//         select:{
+//             deptName:true,
+//             course:{
+//                 select:{}
+//             }
+//         }
+//     });
+    
+// }
+
+
 async function main(argument) {
     let results;
     switch (argument) {
